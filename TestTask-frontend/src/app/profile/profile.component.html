@@ -15,7 +15,8 @@
   </div>
   <div class="form-group">
     <label>Phone</label>
-    <input type="text" formControlName="phone" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.phone.errors }" />
+    <input type="text" formControlName="phone" class="form-control"
+           [ngClass]="{ 'is-invalid': submitted && f.phone.errors }" />
     <div *ngIf="submitted && f.phone.errors" class="invalid-feedback">
       <div *ngIf="f.phone.errors.required">Phone is required</div>
       <div *ngIf="f.phone.errors.pattern">phone number should be at least 10 digits</div>
