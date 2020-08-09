@@ -46,7 +46,7 @@ export class HomeComponent implements OnInit, OnDestroy {
         });
   }
 
-  ngOnDestroy(): void {debu
+  ngOnDestroy(): void {
     // unsubscribe to ensure no memory leaks
     this.currentUserSubscription.unsubscribe();
   }
