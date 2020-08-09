@@ -1,41 +1,10 @@
-<h2> Hello {{ currentUser.email }} , Please Complete your Profile </h2>
-<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
-  <div class="form-group">
-    <label>First Name</label>
-    <input type="text" formControlName="firstName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
-    <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
-      <div *ngIf="f.firstName.errors.required">First Name is required</div>
-    </div>
+<div class="card" style="width: 28rem;" *ngIf="user">
+  <div class="card-body">
+    <h5 class="card-title"> Welcome {{user.firstName}}   {{ user.lastName}} </h5>
+    <p class="card-text"> {{ user.phone}} </p>
+    <p class="card-text"> {{ user.email}} </p>
   </div>
-  <div class="form-group">
-    <label>Last Name</label>
-    <input type="text" formControlName="lastName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" />
-    <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
-      <div *ngIf="f.lastName.errors.required">Last Name is required</div>
-    </div>
+  <div class="card-body">
+    <a routerLink="/profile" class="card-link">Edit Profile</a>
   </div>
-  <div class="form-group">
-    <label>Phone</label>
-    <input type="text" formControlName="phone" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.phone.errors }" />
-    <div *ngIf="submitted && f.phone.errors" class="invalid-feedback">
-      <div *ngIf="f.phone.errors.required">Phone is required</div>
-    </div>
-  </div>
-  <div class="form-group">
-    <label>Profile </label>
-    <input type="file"
-           (change)="handleFileInput($event.target.files)"
-           formControlName="profile" class="form-control"
-           [ngClass]="{ 'is-invalid': submitted && f.profile.errors }" />
-    <div *ngIf="submitted && f.profile.errors" class="invalid-feedback">
-      <div *ngIf="f.profile.errors.required">profile is required</div>
-    </div>
-  </div>
-  <div class="form-group">
-    <button [disabled]="loading" class="btn btn-primary">
-      <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
-      Complete
-    </button>
-    <a routerLink="/login" class="btn btn-link">Cancel</a>
-  </div>
-</form>
+</div>

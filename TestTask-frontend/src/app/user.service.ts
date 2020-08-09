@@ -16,4 +16,8 @@ export class UserService {
   updateUserProfile(user: any): Observable<User> {
     return this.http.put<User>(`${environment.APIURL}/profile`, user);
   }
+
+  getUserData(email: string): Observable<User> {
+    return this.http.get<User>(`${environment.APIURL}/user/${email}`);
+  }
 }
